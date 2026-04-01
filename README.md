@@ -1,4 +1,4 @@
-# Nova Voice Assistant (Flutter)
+# Voice On Assistant
 
 现代化 Flutter 语音助手示例项目，包含炫酷动效主界面、音频录制、WebSocket 实时通信、历史记录与设置页面。
 
@@ -39,7 +39,7 @@ flutter pub get
 flutter run
 ```
 
-## Text-Only GUI-Agent E2E
+## 使用说明
 
 1. 在手机上开启无线调试并完成 `adb pair` / `adb connect`。
 2. 启动后端（`F:\voice-project\voa`）：
@@ -65,54 +65,6 @@ ws://<backend-ip>:<backend-port>/agent
 6. 点击 `Approve` 或 `Reject`，确认状态推进：
    - `Approve`: `waiting_approval -> running -> completed/failed`
    - `Reject`: `waiting_approval -> cancelled`
-
-### 审批消息示例（WebSocket）
-
-客户端创建任务：
-
-```json
-{
-  "type": "task_create",
-  "requestId": "req-2001",
-  "data": {
-    "text": "delete order"
-  }
-}
-```
-
-服务端要求审批：
-
-```json
-{
-  "type": "task_need_approval",
-  "requestId": "req-2001",
-  "taskId": "task-xxx",
-  "data": {
-    "action": "submit",
-    "reason": "needs manual approval"
-  }
-}
-```
-
-客户端同意：
-
-```json
-{
-  "type": "task_approve",
-  "requestId": "req-2001",
-  "taskId": "task-xxx"
-}
-```
-
-客户端拒绝：
-
-```json
-{
-  "type": "task_reject",
-  "requestId": "req-2001",
-  "taskId": "task-xxx"
-}
-```
 
 ## 主要目录结构
 
@@ -164,12 +116,4 @@ lib/
   - `android.permission.RECORD_AUDIO`
   - `android.permission.MODIFY_AUDIO_SETTINGS`
 
-## 备注
 
-- 当前仓库未包含 `flutter create` 生成的完整 Android/Gradle 工程骨架时，可在本目录执行：
-
-```bash
-flutter create .
-```
-
-- 执行后如有文件冲突，请保留本仓库中的 `lib/`、`pubspec.yaml` 和 Android 权限配置。
