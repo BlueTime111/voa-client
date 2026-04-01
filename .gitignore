@@ -1,0 +1,30 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+build/
+
+# IDE
+.idea/
+.vscode/
+
+# Android
+**/android/.gradle/
+**/android/.kotlin/
+**/android/local.properties
+
+# iOS
+**/ios/Flutter/.last_build_id
+**/ios/Pods/
+
+# Generated
+coverage/
+
+# Local tooling reports/temp
+.gstack/
+.tmp/
+
+# IntelliJ module file
+*.iml
